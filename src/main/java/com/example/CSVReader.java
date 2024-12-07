@@ -1,9 +1,8 @@
 package com.example;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +10,7 @@ public class CSVReader implements DataReader<Transaction> {
     @Override
     public List<Transaction> read(String source) {
         List<Transaction> transactions = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(new URL(source).openStream()))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(source))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
