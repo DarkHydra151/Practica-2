@@ -24,12 +24,20 @@ public class Main {
         reportGenerator.printTopExpensesReport(topExpenses);
 
         Transaction largestExpense = analyzer.findLargestExpense();
+        if (largestExpense != null) {
+            System.out.println("Найбільша витрата: " + largestExpense.getDescription() + " (" + largestExpense.getAmount() + ")");
+        } else {
+            System.out.println("Найбільшу витрату не знайдено.");
+        }
+
         Transaction smallestExpense = analyzer.findSmallestExpense();
-        System.out.println("Найбільша витрата: " + largestExpense.getDescription() + " (" + largestExpense.getAmount() + ")");
-        System.out.println("Найменша витрата: " + smallestExpense.getDescription() + " (" + smallestExpense.getAmount() + ")");
+        if (smallestExpense != null) {
+            System.out.println("Найменша витрата: " + smallestExpense.getDescription() + " (" + smallestExpense.getAmount() + ")");
+        } else {
+            System.out.println("Найменшу витрату не знайдено.");
+        }
 
         reportGenerator.printSummaryByCategory(transactions);
         reportGenerator.printSummaryByMonth(transactions);
     }
 }
-

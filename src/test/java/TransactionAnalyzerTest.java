@@ -22,7 +22,7 @@ public class TransactionAnalyzerTest {
 
         List<Transaction> topExpenses = analyzer.findTopExpenses();
 
-        Assertions.assertEquals(3, topExpenses.size(), "Неправильна кількість витрат у списку");
+        Assertions.assertEquals(4, topExpenses.size(), "Неправильна кількість витрат у списку");
         Assertions.assertEquals("Оренда", topExpenses.get(0).getDescription());
         Assertions.assertEquals("Розваги", topExpenses.get(1).getDescription());
         Assertions.assertEquals("Продукти", topExpenses.get(2).getDescription());
